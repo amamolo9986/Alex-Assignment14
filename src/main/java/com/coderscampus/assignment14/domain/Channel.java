@@ -1,6 +1,7 @@
 package com.coderscampus.assignment14.domain;
 
 public class Channel {
+
 	private Long channelId;
 	private String channelName;
 
@@ -22,8 +23,38 @@ public class Channel {
 
 	@Override
 	public String toString() {
-		return "Controller [channelId=" + channelId + ", channelName=" + channelName + "]";
+		return "Channel [channelId=" + channelId + ", channelName=" + channelName + "]";
 	}
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((channelId == null) ? 0 : channelId.hashCode());
+		result = prime * result + ((channelName == null) ? 0 : channelName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Channel other = (Channel) obj;
+		if (channelId == null) {
+			if (other.channelId != null)
+				return false;
+		} else if (!channelId.equals(other.channelId))
+			return false;
+		if (channelName == null) {
+			if (other.channelName != null)
+				return false;
+		} else if (!channelName.equals(other.channelName))
+			return false;
+		return true;
+	}
+
 }

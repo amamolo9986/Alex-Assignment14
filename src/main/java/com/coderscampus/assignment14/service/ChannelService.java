@@ -1,11 +1,11 @@
 package com.coderscampus.assignment14.service;
 
-import java.nio.channels.Channel;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.coderscampus.assignment14.domain.Channel;
 import com.coderscampus.assignment14.repository.ChannelRepository;
 
 @Service
@@ -16,6 +16,10 @@ public class ChannelService {
 
 	public List<Channel> findAll() {
 		return channelRepo.findAll();
+	}
+
+	public Channel findById(Long channelId) {
+		return channelRepo.findById(channelId);
 	}
 
 }
