@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
 function showWelcomePrompt() {
     var username;
     while (!username) {
-        username = prompt('What\'s your name?');
+        username = prompt(`What's your name?`);
         if (username === null) {
-            alert('You didn\'t enter a name. Please try again.');
+            alert(`You didn't enter a name. Please try again.`);
         }
     }
     alert('Welcome, ' + username + '!');
