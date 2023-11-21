@@ -10,15 +10,16 @@ function showWelcomePrompt() {
             alert(`You didn't enter a name. Please try again.`);
         }
     }
-    alert('Welcome, ' + username + '!');
+    alert(`Welcome, ${username}!`);
 
     fetch('/welcome', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: username,
+        body: JSON.stringify(username),
     })
+    .then(response => response.json())  // Parse the JSON response
         .then(user => {
             sessionStorage.setItem('user', JSON.stringify(user));
         });
