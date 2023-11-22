@@ -28,9 +28,9 @@ public class MessageService {
 		Long channelId = message.getChannelId();
 		Optional<Channel> channelOpt = Optional.ofNullable(channelRepo.findById(channelId));
 		if (channelOpt.isPresent()) {
-			List<Message> messagesInChannel = getMessages(channelId);
-			messagesInChannel.add(message);
-			messageRepo.saveMessage(channelId, messagesInChannel);
+			List<Message> messages = getMessages(channelId);
+			messages.add(message);
+			messageRepo.saveMessage(channelId, messages);
 
 		}
 	}
