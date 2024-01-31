@@ -20,6 +20,11 @@ public class ChannelController {
 	private ChannelService channelService;
 	@Autowired
 	private MessageService messageService;
+	
+	@GetMapping("/")
+	public String redirectToWelcome() {
+		return "redirect:/welcome";
+	}
 
 	@GetMapping("/welcome")
 	public String getWelcome(ModelMap model) {

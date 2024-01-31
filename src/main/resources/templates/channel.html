@@ -4,6 +4,11 @@
 
 <head>
     <title th:text="${channel.channelName}"></title>
+    <script type="text/javascript">
+        if (!sessionStorage.getItem('user')) {
+            window.location.replace('/welcome')
+        }
+    </script>
 </head>
 
 <body>
@@ -11,7 +16,14 @@
     <div id="conversation-box"></div><br />
     <textarea id="message-input" th:attr="data-id=${channel.channelId}" placeholder="Type your message..."></textarea>
     <button id="send-button">Send</button>
+    <div>
+        <a href="/welcome">Back</a><br />
+    </div>
     <script type="text/javascript" src="/js/channel.js"></script>
 </body>
 
 </html>
+
+
+
+

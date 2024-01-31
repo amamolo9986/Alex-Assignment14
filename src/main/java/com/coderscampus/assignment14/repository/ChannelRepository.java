@@ -3,11 +3,11 @@ package com.coderscampus.assignment14.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.coderscampus.assignment14.domain.Channel;
 
-@Repository
+@Component
 public class ChannelRepository {
 
 	List<Channel> channels = new ArrayList<>();

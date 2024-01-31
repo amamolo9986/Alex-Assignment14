@@ -17,7 +17,6 @@ public class UserController {
 	@PostMapping("/welcome")
 	public User createUser(@RequestBody String name) {
 		User user = userService.createUser(name);
-		System.out.println(user);
 		return user;
 		
 	}

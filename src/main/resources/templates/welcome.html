@@ -3,8 +3,29 @@
 
 <head>
     <title>Welcome!</title>
-    <script type="text/javascript" src="/js/welcome.js"></script>
-    <!-- ^^^ Temporarily disabled while in prod ^^^ -->
+    <script type="text/javascript">
+        var user = sessionStorage.getItem(`user`)
+
+        if (user == null) {
+            let name = prompt(`What's your name?`)
+            if (name === null) {
+                alert(`You didn't enter a name. Please try again.`)
+            }
+
+            alert(`Welcome, ${name}!`)
+
+            fetch('/welcome', {
+                method: 'POST',
+                body: name,
+            }).then(response => response.json())
+                .then(user => {
+                    sessionStorage.setItem('user', JSON.stringify(user))
+                })
+        } else {
+            user = JSON.parse(sessionStorage.getItem('user'))
+            console.log(user)
+        }
+    </script>
 </head>
 
 <body>
